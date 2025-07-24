@@ -1,0 +1,47 @@
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bubble-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #23232f, #2a2a3d);
+  background-size: 400% 400%;
+  animation: gradientPulse 15s ease infinite;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  animation-name: bubbleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  filter: blur(0.5px);
+  pointer-events: none;
+}
